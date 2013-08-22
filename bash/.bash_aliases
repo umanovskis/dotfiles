@@ -32,3 +32,7 @@ alias apt-install='sudo apt-get install'
 alias reload='source ~/.bashrc || source ~/.bash_aliases'
 alias mount='mount | column -t'
 alias psgrep='ps aux | grep'
+grepr()
+{
+grep -r "$1" .
+}
