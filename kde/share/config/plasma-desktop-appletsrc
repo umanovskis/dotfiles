@@ -39,6 +39,20 @@ zvalue=0
 browser=preferred://browser, , ,\s
 filemanager=preferred://filemanager, , ,\s
 
+[Containments][1][Applets][5][Configuration]
+Share=false
+forceRows=false
+groupWhenFull=true
+groupingStrategy=2
+highlightWindows=false
+maxRows=2
+showOnlyCurrentActivity=true
+showOnlyCurrentDesktop=true
+showOnlyCurrentScreen=false
+showOnlyMinimized=false
+showTooltip=true
+sortingStrategy=2
+
 [Containments][1][Applets][5][LayoutInformation]
 Order=3
 
