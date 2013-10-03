@@ -36,3 +36,19 @@ grepr()
 {
 grep -r "$1" .
 }
+
+playme()
+{
+python "$HOME"/ytplay/play.py "$1"
+}
+
+locatevim()
+{
+locate "$1" | tail -1 | xargs cat | vim -
+}
+alias locvim=locatevim
+
+findnvim()
+{
+findn "$1" | tail -1 | xargs cat | vim -
+}
