@@ -52,3 +52,14 @@ findnvim()
 {
 findn "$1" | tail -1 | xargs cat | vim -
 }
+alias rm='rm -I'
+
+cat_or_pygmentize()
+{
+	if hash pygmentize 2> /dev/null; then
+		pygmentize -g "$@"
+	else
+		cat "$@"
+	fi
+}
+alias cat=cat_or_pygmentize
