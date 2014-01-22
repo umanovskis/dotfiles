@@ -59,7 +59,7 @@ cat_or_pygmentize()
 	if hash pygmentize 2> /dev/null; then
 		pygmentize -g "$@"
 	else
-		cat "$@"
+		/bin/cat "$@"
 	fi
 }
 alias cat=cat_or_pygmentize
