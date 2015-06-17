@@ -91,6 +91,14 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -d ~/.bash_aliases.d ]; then
+	shopt -s nullglob
+	shopt -s dotglob
+	for f in ~/.bash_aliases.d/* ;
+		do . "$f"
+	done
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
