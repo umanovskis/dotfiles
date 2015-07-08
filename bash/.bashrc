@@ -97,6 +97,8 @@ if [ -d ~/.bash_aliases.d ]; then
 	for f in ~/.bash_aliases.d/* ;
 		do . "$f"
 	done
+	shopt -u nullglob
+	shopt -u dotglob
 fi
 
 # enable programmable completion features (you don't need to enable
