@@ -37,3 +37,4 @@ source `readlink -f "$HOME"/.bash_aliases`
 cp "$HOME"/.kde/share/config/plasma-desktop-appletsrc "$HOME"/.kde/share/config/plasma-desktop-appletsrc.bak || true
 
 cp -r kde/* "$HOME"/.kde
+cp -r config/* "$HOME"/.config
