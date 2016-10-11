@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/daniels.umanovskis/dotfiles/bash'
+let g:netrw_dirhist_2='/home/daniels.umanovskis/dotfiles'
+let g:netrw_dirhist_3='/home/daniels.umanovskis'
+let g:netrw_dirhist_4='/home'
+let g:netrw_dirhist_5='/home/daniels.umanovskis/dotfiles/.git'

@@ -29,6 +29,7 @@ if ! [ -L "$HOME"/.bash_aliases.d ]; then
 fi
 
 ln -s `pwd`/.vimrc "$HOME"/.vimrc
+cp -r `pwd`/vim-plugins "$HOME"/.vim/plugin
 
 source `readlink -f "$HOME"/.bashrc`
 source `readlink -f "$HOME"/.bash_aliases`
