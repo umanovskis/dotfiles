@@ -1,0 +1,21 @@
+[user]
+	name = Daniels Umanovskis
+
+[core]
+	editor = vim
+	mergetool = meld
+
+[color]
+	ui = auto
+	diff = true
+
+[credential]
+	helper = cache --timeout=900
+
+[push]
+	default = simple
+[alias]
+	co = checkout
+	st = status
+	tags = tag
+	br = symbolic-ref --short HEAD

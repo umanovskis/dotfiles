@@ -39,3 +39,6 @@ cp "$HOME"/.kde/share/config/plasma-desktop-appletsrc "$HOME"/.kde/share/config/
 
 cp -r kde/* "$HOME"/.kde
 cp -r config/* "$HOME"/.config
+
+cp "$HOME"/.gitconfig "$HOME"/.gitconfig.bak && echo ".gitconfig backed up"
+cp .gitconfig "$HOME"/.gitconfig
