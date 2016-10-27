@@ -95,7 +95,11 @@ if [ -d ~/.bash_aliases.d ]; then
 	shopt -s nullglob
 	shopt -s dotglob
 	for f in ~/.bash_aliases.d/* ;
-		do . "$f"
+		do
+		ext=${f##*.}
+		if ! [ "$ext" == "des3" ]; then
+			. "$f"
+		fi
 	done
 	shopt -u nullglob
 	shopt -u dotglob

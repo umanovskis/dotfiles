@@ -1,11 +1,30 @@
 #!/bin/bash
 
-rm "$HOME"/.bashrc > /dev/null || true
-rm "$HOME"/.bash_aliases > /dev/null || true 
-rm "$HOME"/.vimrc > /dev/null || true
+function link()
+{
+	if ! [ -e "$1" ]; then
+		echo "$1 does not exist, skipping"
+	fi
+	ln -s ${1} ${2}
+}
 
+mapfile -t CONFARR < <(cat conf | grep -v "^#")
 
-shopt -s nullglob
+for entry in ${CONFARR[@]}; do
+	src=${entry##*:}
+	dst=~/${entry%%:${src}}
+	src=`pwd`/${src}
+	if [ -e "$dst" ]; then
+		target=`readlink "$dst"`
+		if [ "$target" == "$src" ]; then
+			echo "Link $dst up-to-date, skipping..."
+			continue
+		fi
+	fi
+#	echo $dst
+	link "$src" "$dst"
+done
+
 
 if hash openssl 2>/dev/null; then
 	#Decrypt additional files
@@ -13,32 +32,15 @@ if hash openssl 2>/dev/null; then
 		for encfile in ./bash/.bash_aliases.d/*.des3 ; do
 			fname=$(basename "$encfile")
 			decfile="./bash/.bash_aliases.d/${fname%.*}"
-			echo "$decfile"
 			openssl des3 -d -salt -in "$encfile" -out "$decfile"
-			if [ -f "$decfile" ]; then rm "$encfile"; fi
+			# If it failed due to wrong decryption key...
+			# the decrypted file is just crap
+			if [ "$?" -eq 1 ]; then
+				rm "$decfile"
+			fi
 		done
 	fi
 else
 	echo "OpenSSL not found, additional aliases will not be decrypted"
 fi
 
-ln -s `pwd`/bash/.bashrc "$HOME"/.bashrc 
-ln -s `pwd`/bash/.bash_aliases "$HOME"/.bash_aliases
-if ! [ -L "$HOME"/.bash_aliases.d ]; then
-	ln -s `pwd`/bash/.bash_aliases.d "$HOME"/.bash_aliases.d
-fi
-
-ln -s `pwd`/.vimrc "$HOME"/.vimrc
-cp -r `pwd`/vim-plugins "$HOME"/.vim/plugin
-
-source `readlink -f "$HOME"/.bashrc`
-source `readlink -f "$HOME"/.bash_aliases`
-
-#The Plasma desktop file I definitely always want a backup of
-cp "$HOME"/.kde/share/config/plasma-desktop-appletsrc "$HOME"/.kde/share/config/plasma-desktop-appletsrc.bak || true
-
-cp -r kde/* "$HOME"/.kde
-cp -r config/* "$HOME"/.config
-
-cp "$HOME"/.gitconfig "$HOME"/.gitconfig.bak && echo ".gitconfig backed up"
-cp .gitconfig "$HOME"/.gitconfig
