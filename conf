@@ -1,0 +1,12 @@
+.vimrc:.vimrc
+.vim/plugin:vim-plugins
+
+.bashrc:bash/.bashrc
+.bash_aliases:bash/.bash_aliases
+.bash_aliases.d:bash/.bash_aliases.d
+
+.gitconfig:.gitconfig
+
+.kde/share/apps/konsole:kde/share/apps/konsole
+.kde/share/config/yakuakerc:kde/share/config/yakuakerc
+.kde/share/config/konsolerc:kde/share/config/konsolerc
