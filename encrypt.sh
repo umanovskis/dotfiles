@@ -7,9 +7,8 @@ if hash openssl 2>/dev/null; then
 		shopt -s nullglob
 		for f in ./bash/.bash_aliases.d/* ; do
 			ext=${f##*.}
-			if [ "$ext" = "des3" ]; then continue; fi
+			if [ "$ext" = "des3" ] || [ "$f" == ".gitignore" ]; then continue; fi
 			encfile="$f".des3
-			echo "$encfile"
 			openssl des3 -salt -in "$f" -out "$encfile"
 			if [ -f "$encfile" ]; then rm "$f"; fi
 		done

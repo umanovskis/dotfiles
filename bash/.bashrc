@@ -97,7 +97,7 @@ if [ -d ~/.bash_aliases.d ]; then
 	for f in ~/.bash_aliases.d/* ;
 		do
 		ext=${f##*.}
-		if ! [ "$ext" == "des3" ]; then
+		if ! [ "$ext" == "des3" ] && [ "$f" == ".gitignore" ]; then
 			. "$f"
 		fi
 	done
