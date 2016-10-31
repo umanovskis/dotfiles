@@ -65,3 +65,16 @@ cat_or_pygmentize()
 alias cat=cat_or_pygmentize
 
 alias git-view-remote='for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --format="%ci %cr" $branch | head -n 1` \\t$branch; done | sort -r'
+
+gitcd()
+{
+    if [ "$1" == "cd" ]; then
+        git rev-parse --show-toplevel > /dev/null 2>&1   
+        if [ $? == 0 ]; then
+            cd `git rev-parse --show-toplevel`/"$2"
+        fi
+    else
+        git "$@"
+    fi
+}
+alias git=gitcd
