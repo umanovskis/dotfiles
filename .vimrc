@@ -30,6 +30,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
+command Vball vertical ball
+
 " Plugins
 
 set runtimepath^=~/.vim/plugin/bundle/ctrlp.vim
