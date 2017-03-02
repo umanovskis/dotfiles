@@ -1,6 +1,7 @@
 # Vim
 .vimrc:.vimrc
 .vim/plugin:vim-plugins
+.vim/colors:vim-colors
 
 # Bash, aliases
 .bashrc:bash/.bashrc
