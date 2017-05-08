@@ -35,6 +35,12 @@ command Vball vertical ball
 " Plugins
 
 set runtimepath^=~/.vim/plugin/bundle/ctrlp.vim
+set runtimepath^=~/.vim/plugin/bundle/nerdtree
+
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <Leader>f :NERDTreeFind<CR>
+
+autocmd VimEnter * if argc() == 0 || argc() > 1 | NERDTree | endif
 
 " Solarized color in vim
 
