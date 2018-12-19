@@ -1,6 +1,8 @@
 " The very basics
 syntax on
-set tabstop=4
+set tabstop=8
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 set autoindent
 
@@ -29,6 +31,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
+
+" Tabs
+nnoremap <F2> :tabp<Enter>
+inoremap <F2> <Esc>:tabp<Enter>
+nnoremap <F3> :tabn<Enter>
+inoremap <F3> <Esc>:tabn<Enter>
 
 command Vball vertical ball
 
